@@ -1,0 +1,5 @@
+.idea/*
+/**/.gitignore
+/**/gradlew
+/**/gradlew.bat
+/**/gradle/*
