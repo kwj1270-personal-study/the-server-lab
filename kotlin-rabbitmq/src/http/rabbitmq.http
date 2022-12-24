@@ -1,0 +1,9 @@
+# RabbitMQ Registration User info
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "username": "kwj1270",
+  "email": "kwj1270@naver.com",
+  "mobileNumber": "010-1234-5678"
+}
