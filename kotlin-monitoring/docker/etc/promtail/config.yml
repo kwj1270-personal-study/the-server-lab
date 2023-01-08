@@ -32,10 +32,3 @@ scrape_configs:
         source_labels:
           - __meta_kafka_group_id
         target_label: group
-  - job_name: spring log
-    static_configs:
-      - targets:
-          - host.docker.internal
-        labels:
-          job: spring logs
-          __path__: /var/log/*log
