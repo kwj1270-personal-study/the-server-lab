@@ -1,0 +1,179 @@
+2023-01-06T13:41:25.314+09:00  INFO 22504 --- [main] c.l.m.KotlinMonitoringApplicationKt      : Starting KotlinMonitoringApplicationKt using Java 17.0.2 with PID 22504 (/Users/kimwoojae/IdeaProjects/poc/the-server-lab/kotlin-monitoring/build/classes/kotlin/main started by kimwoojae in /Users/kimwoojae/IdeaProjects/poc/the-server-lab/kotlin-monitoring)
+2023-01-06T13:41:25.316+09:00  INFO 22504 --- [main] c.l.m.KotlinMonitoringApplicationKt      : No active profile set, falling back to 1 default profile: "default"
+2023-01-06T13:41:25.835+09:00  INFO 22504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-06T13:41:25.837+09:00  INFO 22504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-06T13:41:25.852+09:00  INFO 22504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2023-01-06T13:41:26.095+09:00  INFO 22504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-06T13:41:26.101+09:00  INFO 22504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-06T13:41:26.101+09:00  INFO 22504 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-06T13:41:26.147+09:00  INFO 22504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-06T13:41:26.148+09:00  INFO 22504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 779 ms
+2023-01-06T13:41:26.729+09:00  INFO 22504 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2023-01-06T13:41:26.783+09:00  WARN 22504 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-01-06T13:41:26.793+09:00  INFO 22504 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-06T13:41:26.805+09:00  INFO 22504 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-01-06T13:41:26.814+09:00 ERROR 22504 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-01-06T13:41:34.492+09:00  INFO 22531 --- [main] c.l.m.KotlinMonitoringApplicationKt      : Starting KotlinMonitoringApplicationKt using Java 17.0.2 with PID 22531 (/Users/kimwoojae/IdeaProjects/poc/the-server-lab/kotlin-monitoring/build/classes/kotlin/main started by kimwoojae in /Users/kimwoojae/IdeaProjects/poc/the-server-lab/kotlin-monitoring)
+2023-01-06T13:41:34.494+09:00  INFO 22531 --- [main] c.l.m.KotlinMonitoringApplicationKt      : No active profile set, falling back to 1 default profile: "default"
+2023-01-06T13:41:34.946+09:00  INFO 22531 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-06T13:41:34.948+09:00  INFO 22531 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-06T13:41:34.962+09:00  INFO 22531 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-06T13:41:35.187+09:00  INFO 22531 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-06T13:41:35.197+09:00  INFO 22531 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-06T13:41:35.197+09:00  INFO 22531 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-06T13:41:35.238+09:00  INFO 22531 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-06T13:41:35.238+09:00  INFO 22531 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 721 ms
+2023-01-06T13:41:35.780+09:00  INFO 22531 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2023-01-06T13:41:35.837+09:00  INFO 22531 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-06T13:41:35.846+09:00  INFO 22531 --- [main] c.l.m.KotlinMonitoringApplicationKt      : Started KotlinMonitoringApplicationKt in 1.564 seconds (process running for 1.866)
+2023-01-06T13:41:35.983+09:00  INFO 22531 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-06T13:41:35.983+09:00  INFO 22531 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-06T13:41:35.984+09:00  INFO 22531 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-06T13:42:45.200+09:00  INFO 22531 --- [http-nio-8080-exec-5] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:45.218+09:00  INFO 22531 --- [http-nio-8080-exec-5] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [127.0.0.1:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2023-01-06T13:42:45.235+09:00  INFO 22531 --- [http-nio-8080-exec-5] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Instantiated an idempotent producer.
+2023-01-06T13:42:45.256+09:00  INFO 22531 --- [http-nio-8080-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.3.1
+2023-01-06T13:42:45.256+09:00  INFO 22531 --- [http-nio-8080-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e23c59d00e687ff5
+2023-01-06T13:42:45.256+09:00  INFO 22531 --- [http-nio-8080-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1672980165255
+2023-01-06T13:42:45.431+09:00  WARN 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Error while fetching metadata with correlation id 1 : {app-log=LEADER_NOT_AVAILABLE}
+2023-01-06T13:42:45.432+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Cluster ID: iT9ZURL3RV2gtRXZEYs1TQ
+2023-01-06T13:42:45.527+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=producer-1] ProducerId set to 0 with epoch 0
+2023-01-06T13:42:45.560+09:00  WARN 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Error while fetching metadata with correlation id 4 : {app-log=LEADER_NOT_AVAILABLE}
+2023-01-06T13:42:45.667+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Resetting the last seen epoch of partition app-log-0 to 0 since the associated topicId changed from null to ygtAHmzoT4G4DQSuX04pNw
+2023-01-06T13:42:46.782+09:00  INFO 22531 --- [http-nio-8080-exec-8] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:47.555+09:00  INFO 22531 --- [http-nio-8080-exec-10] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:48.103+09:00  INFO 22531 --- [http-nio-8080-exec-2] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:48.750+09:00  INFO 22531 --- [http-nio-8080-exec-4] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:49.254+09:00  INFO 22531 --- [http-nio-8080-exec-6] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:49.792+09:00  INFO 22531 --- [http-nio-8080-exec-8] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:42:50.280+09:00  INFO 22531 --- [http-nio-8080-exec-10] com.lab.monitoring.presentation.LogApi   : Logging is Success!, method = LogApi.logging()
+2023-01-06T13:51:45.681+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node -1 disconnected.
+2023-01-06T14:00:36.886+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:36.991+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:36.991+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 17 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 30000ms)
+2023-01-06T14:00:37.115+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:37.116+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 18 due to node 1 being disconnected (elapsed time since creation: 22ms, elapsed time since send: 22ms, request timeout: 30000ms)
+2023-01-06T14:00:37.372+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:37.372+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 19 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 30000ms)
+2023-01-06T14:00:37.784+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:37.785+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 20 due to node 1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 30000ms)
+2023-01-06T14:00:38.551+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:38.551+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 21 due to node 1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 30000ms)
+2023-01-06T14:00:39.728+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:39.728+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 22 due to node 1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 30000ms)
+2023-01-06T14:00:40.956+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:40.956+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 23 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 30000ms)
+2023-01-06T14:00:42.136+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:42.137+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 24 due to node 1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 30000ms)
+2023-01-06T14:00:43.299+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:43.299+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 25 due to node 1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 30000ms)
+2023-01-06T14:00:44.173+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 1 disconnected.
+2023-01-06T14:00:44.174+09:00  INFO 22531 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Cancelled in-flight API_VERSIONS request with correlation id 26 due to node 1 being disconnected (elapsed time since creation: 4ms, elapsed time since send: 4ms, request timeout: 30000ms)
+2023-01-06T14:01:25.444+09:00  INFO 22531 --- [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2023-01-06T14:01:25.446+09:00  INFO 22531 --- [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2023-01-06T14:01:25.446+09:00  INFO 22531 --- [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2023-01-06T14:01:25.447+09:00  INFO 22531 --- [SpringApplicationShutdownHook] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2023-01-06T14:01:25.447+09:00  INFO 22531 --- [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for producer-1 unregistered

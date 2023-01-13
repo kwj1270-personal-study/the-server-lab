@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - 3100:3100
+    volumes:
+      - ./docker/loki/local-config.yaml:/etc/loki/local-config.yaml:ro
+    command: -config.file=/etc/loki/local-config.yaml
+  fluent-bit:
+    image: grafana/fluent-bit-plugin-loki:latest
+    environment:
+      - LOKI_URL=http://loki:3100/loki/api/v1/push
+    volumes:
+      - ./docker/fluent/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+    ports:
+      - 24224:24224
+      - 24224:24224/udp
+  redis:
+    image: redis:latest
+    depends_on:
+      - fluent-bit
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --loglevel warning
+    logging:
+      driver: fluentd
+  mariadb:
+    image: mariadb:latest
+    depends_on:
+      - fluent-bit
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: passwd
+    logging:
+      driver: fluentd
+  application:
+    depends_on:
+      - fluent-bit
+    image: kotlin-monitoring-fluentbit:latest
+    build: .
+    ports:
+      - 8080:8080
+    logging:
+      driver: fluentd
+networks:
+  flg:
+    driver: bridge
