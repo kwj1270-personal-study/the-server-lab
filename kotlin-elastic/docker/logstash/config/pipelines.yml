@@ -1,0 +1,2 @@
+- pipeline.id: mariadb-pipeline
+  path.config: "/usr/share/logstash/pipeline/mariadb-pipeline.conf"
