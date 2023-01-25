@@ -44,8 +44,7 @@ services:
   application:
     depends_on:
       - fluent-bit
-    image: kotlin-monitoring-fluentbit:latest
-    build: .
+    image: kwj1270/kotlin-monitoring-fluentbit:latest
     ports:
       - 8080:8080
     logging:
