@@ -1,11 +1,11 @@
 spring:
   data:
     redis:
-      host: localhost
+      host: host.docker.internal
       port: 6379
   kafka:
     bootstrap-servers:
-      - 127.0.0.1:29092
+      - kafka:9092
     template:
       default-topic: app-log
     producer:
