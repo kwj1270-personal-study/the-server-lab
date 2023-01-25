@@ -60,10 +60,21 @@ services:
     volumes:
       - ./etc/loki/local-config.yaml:/etc/loki/local-config.yaml:ro
     command: -config.file=/etc/loki/local-config.yaml
+  application:
+    image: kwj1270/kotlin-monitoring:latest
+    depends_on:
+      - kafka
+      - redis
+    ports:
+      - 8080:8080
   promtail:
     depends_on:
       - kafka
     image: grafana/promtail:latest
+    depends_on:
+      - kafka
+      - loki
+      - application
     volumes:
       - ./etc/promtail/config.yml:/etc/promtail/config.yml:ro
   influxdb:
