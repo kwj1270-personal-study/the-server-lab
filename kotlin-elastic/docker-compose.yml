@@ -9,6 +9,9 @@ services:
       - discovery.seed_hosts=es02,es03
       - cluster.initial_master_nodes=es01,es02,es03
       - discovery.zen.minimum_master_nodes=2
+      - network.bind_host=0.0.0.0
+      - http.cors.enabled=true
+      - http.cors.allow-origin="*"
       - node.master=true
       - node.data=false
       - node.ingest=false
@@ -153,6 +156,34 @@ services:
       - "9600:9600"
     environment:
       LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elastic
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - elastic
+  elasticsearch_exporter:
+    container_name: elasticsearch_exporter
+    image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
+    command:
+      - '--es.uri=http://es01:9200'
+    restart: always
+    ports:
+      - "9114:9114"
+    networks:
+      - elastic
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    links:
+      - prometheus
     networks:
       - elastic
   mariadb:
