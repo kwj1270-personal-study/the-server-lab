@@ -129,7 +129,7 @@ services:
     networks:
       - elastic
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.17.8
+    image: docker.elastic.co/logstash/logstash:7.17.9
     container_name: logstash
     volumes:
       - type: bind
