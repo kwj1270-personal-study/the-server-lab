@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./docker/etc/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./docker/etc/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./docker/etc/grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/jvm-micrometer_rev9.json
+    links:
+      - prometheus
+networks:
+  java-thread:
+    driver: bridge
