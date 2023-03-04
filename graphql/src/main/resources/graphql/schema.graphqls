@@ -1,0 +1,23 @@
+type Food {
+    id: ID!
+    name: String!
+}
+
+type FoodReadResponse {
+    id: ID!
+    name: String!
+}
+
+type FoodsReadResponse {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    readFood(name: String!): FoodReadResponse
+    readFoods: [FoodsReadResponse]
+}
+
+type Mutation {
+    saveFood(name: String!): Int
+}
