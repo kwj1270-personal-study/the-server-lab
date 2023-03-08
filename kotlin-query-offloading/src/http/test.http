@@ -1,0 +1,21 @@
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "account": "account",
+  "password": "password",
+  "nickname": "nickname"
+}
+
+###
+POST http://localhost:8080/boards
+Content-Type: application/json
+
+{
+  "account": "account",
+  "password": "password",
+  "title": "title",
+  "content": "content"
+}
+
