@@ -1,0 +1,140 @@
+version: '3.8'
+
+services:
+  db-default-master-1:
+    image: mariadb:10.4
+    container_name: db-default-master-1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/default/group-1/master/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/default/group-1/master/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
+  db-default-slave-1-1:
+    image: mariadb:10.4
+    container_name: db-default-slave-1-1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/default/group-1/slave-1/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/default/group-1/slave-1/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3307:3306"
+    depends_on:
+      - db-default-master-1
+    links:
+      - db-default-master-1
+  db-default-slave-1-2:
+    image: mariadb:10.4
+    container_name: db-default-slave-1-2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/default/group-1/slave-2/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/default/group-1/slave-2/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3308:3306"
+    depends_on:
+      - db-default-master-1
+    links:
+      - db-default-master-1
+
+  db-business-master-1:
+    image: mariadb:10.4
+    container_name: db-business-master-1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-1/master/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-1/master/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3309:3306"
+    depends_on:
+      - db_default_master-1
+  db-business-slave-1-1:
+    image: mariadb:10.4
+    container_name: db-business-slave-1-1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-1/slave-1/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-1/slave-1/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3310:3306"
+    depends_on:
+      - db-business-master-1
+    links:
+      - db-business-master-1
+  db-business-slave-1-2:
+    image: mariadb:10.4
+    container_name: db-business-slave-1-2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-1/slave-2/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-1/slave-2/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3311:3306"
+    depends_on:
+      - db-business-master-1
+    links:
+      - db-business-master-1
+  db-business-master-2:
+    image: mariadb:10.4
+    container_name: db-business-master-2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-2/master/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-2/master/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3312:3306"
+    depends_on:
+      - db_default_master-1
+  db-business-slave-2-1:
+    image: mariadb:10.4
+    container_name: db-business-slave-2-1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-2/slave-1/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-2/slave-1/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3313:3306"
+    depends_on:
+      - db-business-master-2
+    links:
+      - db-business-master-2
+  db-business-slave-2-2:
+    image: mariadb:10.4
+    container_name: db-business-slave-2-2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mariadb/business/group-2/slave-2/config/my.cnf:/etc/mysql/my.cnf
+      - ./mariadb/business/group-2/slave-2/sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "3314:3306"
+    depends_on:
+      - db-business-master-2
+    links:
+      - db-business-master-2
