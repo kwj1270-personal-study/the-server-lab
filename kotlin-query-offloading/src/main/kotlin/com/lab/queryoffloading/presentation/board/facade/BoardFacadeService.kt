@@ -2,14 +2,14 @@ package com.lab.queryoffloading.presentation.board.facade
 
 import com.lab.queryoffloading.domain.board.BoardService
 import com.lab.queryoffloading.domain.board.persistence.Board
-import com.lab.queryoffloading.domain.user.UserService
-import com.lab.queryoffloading.presentation.board.dto.BoardReadResponse
+import com.lab.queryoffloading.domain.user.UserReadService
+import com.lab.queryoffloading.domain.user.UserWriteService
 import org.springframework.stereotype.Service
 
 @Service
 class BoardFacadeService(
     private val boardService: BoardService,
-    private val userService: UserService
+    private val userReadService: UserReadService
 ) {
 
     fun readBoard(id: Long): Board =
@@ -19,7 +19,7 @@ class BoardFacadeService(
         boardService.readAllBoard()
 
     fun writeBoard(account: String, password: String, title: String, content: String): Long {
-        val user = userService.readUser(account, password)
+        val user = userReadService.readUser(account, password)
         return boardService.writeBoard(title, content, user.id!!)
     }
 

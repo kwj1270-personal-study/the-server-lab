@@ -1,6 +1,6 @@
 package com.lab.queryoffloading.presentation.user
 
-import com.lab.queryoffloading.domain.user.UserService
+import com.lab.queryoffloading.domain.user.UserUsecase
 import com.lab.queryoffloading.presentation.user.dto.UserDeleteRequest
 import com.lab.queryoffloading.presentation.user.dto.UserReadRequest
 import com.lab.queryoffloading.presentation.user.dto.UserReadResponse
@@ -18,18 +18,18 @@ import java.net.URI
 @RequestMapping("/users")
 @RestController
 class UserApi(
-    private val userService: UserService
+    private val userUsecase: UserUsecase
 ) {
 
     @GetMapping
     fun readUser(@RequestBody userReadRequest: UserReadRequest): UserReadResponse =
-        UserReadResponse(userService.readUser(userReadRequest.account, userReadRequest.password))
+        UserReadResponse(userUsecase.readUser(userReadRequest.account, userReadRequest.password))
 
     @PostMapping
     fun writeUser(@RequestBody userWriteRequest: UserWriteRequest): URI =
         URI.create(
             "/users/${
-                userService.writeUser(
+                userUsecase.writeUser(
                     userWriteRequest.account,
                     userWriteRequest.password,
                     userWriteRequest.nickname
@@ -37,11 +37,24 @@ class UserApi(
             }"
         )
 
+    @PostMapping("/with-count")
+    fun writeAndCountUser(@RequestBody userWriteRequest: UserWriteRequest): URI =
+        URI.create(
+            "/users/${
+                userUsecase.writeAndCountUser(
+                    userWriteRequest.account,
+                    userWriteRequest.password,
+                    userWriteRequest.nickname
+                )
+            }"
+        )
+
+
     @PutMapping
     fun updateUser(@RequestBody userUpdateRequest: UserUpdateRequest) =
-        userService.updateUser(userUpdateRequest.account, userUpdateRequest.password, userUpdateRequest.nickname)
+        userUsecase.updateUser(userUpdateRequest.account, userUpdateRequest.password, userUpdateRequest.nickname)
 
     @DeleteMapping
     fun deleteUser(@RequestBody userDeleteRequest: UserDeleteRequest) =
-        userService.deleteUser(userDeleteRequest.account, userDeleteRequest.password)
+        userUsecase.deleteUser(userDeleteRequest.account, userDeleteRequest.password)
 }

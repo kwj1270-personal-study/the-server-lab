@@ -1,14 +1,20 @@
 package com.lab.queryoffloading.domain.user.persistence
 
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Table
 
+@Table(name = "users")
 @Entity
 class User(
+    @Column(unique = true)
     var account: String = "",
     var password: String = "",
+
+    @Column(unique = true)
     var nickname: String = "",
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,21 +1,21 @@
 version: '3.8'
 
 services:
-  haproxy-galera-cluster:
+  haproxy-master-slave:
     image: haproxy:2.4
     depends_on:
-      - 'galera-node-3-ro'
+      - 'slave-node-2-ro'
     volumes:
       - ./haproxy/config:/usr/local/etc/haproxy:ro
     ports:
       - '3306:3306'  # Read-Write
       - '3307:3307'  # Read-Only
 
-  galera-node-1-rw:
+  master-node-1-rw:
     image: mariadb:10.4
     volumes:
-      - ./mariadb/node-1/volume:/var/lib/mysql
-      - ./mariadb/config/node-1:/etc/mysql/mariadb.conf.d
+      - ./mariadb/config/master:/etc/mysql/mariadb.conf.d
+      - ./mariadb/sql/master:/docker-entrypoint-initdb.d
     ports:
       - '3308:3306'
     expose:
@@ -24,18 +24,15 @@ services:
       - '4567'
     environment:
       - MYSQL_ROOT_PASSWORD=passwd
-      - MYSQL_DATABASE=test-db
       - TZ=Asia/Seoul
-    command:
-      [ 'mysqld', '--wsrep_new_cluster' ]
 
-  galera-node-2-ro:
+  slave-node-1-ro:
     image: mariadb:10.4
     depends_on:
-      - 'galera-node-1-rw'
+      - 'master-node-1-rw'
     volumes:
-      - ./mariadb/node-2/volume:/var/lib/mysql
-      - ./mariadb/config/node-2:/etc/mysql/mariadb.conf.d
+      - ./mariadb/config/slave-1:/etc/mysql/mariadb.conf.d
+      - ./mariadb/sql/slave-1:/docker-entrypoint-initdb.d
     ports:
       - '3309:3306'
     expose:
@@ -44,16 +41,15 @@ services:
       - '4567'
     environment:
       - MYSQL_ROOT_PASSWORD=passwd
-      - MYSQL_DATABASE=test-db
       - TZ=Asia/Seoul
 
-  galera-node-3-ro:
+  slave-node-2-ro:
     image: mariadb:10.4
     depends_on:
-      - 'galera-node-1-rw'
+      - 'master-node-1-rw'
     volumes:
-      - ./mariadb/node-3/volume:/var/lib/mysql
-      - ./mariadb/config/node-3:/etc/mysql/mariadb.conf.d
+      - ./mariadb/config/slave-2:/etc/mysql/mariadb.conf.d
+      - ./mariadb/sql/slave-2:/docker-entrypoint-initdb.d
     ports:
       - '3310:3306'
     expose:
@@ -62,5 +58,4 @@ services:
       - '4567'
     environment:
       - MYSQL_ROOT_PASSWORD=passwd
-      - MYSQL_DATABASE=test-db
       - TZ=Asia/Seoul

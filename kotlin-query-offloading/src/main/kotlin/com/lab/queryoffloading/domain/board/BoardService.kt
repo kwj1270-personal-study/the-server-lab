@@ -1,38 +1,38 @@
 package com.lab.queryoffloading.domain.board
 
+import com.lab.queryoffloading.config.datasource.readwrite.BoardReadOnlyDataSourceConfiguration
+import com.lab.queryoffloading.config.datasource.readwrite.BoardReadWriteDataSourceConfiguration
 import com.lab.queryoffloading.domain.board.persistence.Board
-import com.lab.queryoffloading.domain.board.persistence.BoardRepository
+import com.lab.queryoffloading.domain.board.persistence.ro.BoardReadOnlyRepository
+import com.lab.queryoffloading.domain.board.persistence.rw.BoardReadWriteRepository
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import org.springframework.transaction.support.TransactionSynchronizationManager
 
-@Transactional(readOnly = false)
+@Transactional(readOnly = false, transactionManager = BoardReadWriteDataSourceConfiguration.TRANSACTION_MANAGER)
 @Service
 class BoardService(
-    private val boardRepository: BoardRepository
+    private val boardReadOnlyRepository: BoardReadOnlyRepository,
+    private val boardReadWriteRepository: BoardReadWriteRepository
 ) {
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true, transactionManager = BoardReadOnlyDataSourceConfiguration.TRANSACTION_MANAGER)
     fun readBoard(id: Long = 0): Board {
-        val orElseThrow = boardRepository.findById(id)
+        return boardReadOnlyRepository.findById(id)
             .orElseThrow { throw EntityNotFoundException("board not found") }
-
-        println(TransactionSynchronizationManager.isCurrentTransactionReadOnly())
-        return orElseThrow
     }
 
 
     @Transactional(readOnly = true)
     fun readAllBoard(): List<Board> =
-        boardRepository.findAll()
+        boardReadOnlyRepository.findAll()
 
     fun writeBoard(
         title: String = "",
         content: String = "",
         writer: Long = 0L
     ): Long =
-        boardRepository.saveAndFlush(
+        boardReadWriteRepository.saveAndFlush(
             Board(title = title, content = content, writer = writer)
         ).id!!
 
@@ -40,12 +40,12 @@ class BoardService(
         id: Long = 0L,
         title: String = "",
         content: String = ""
-    ) = boardRepository.saveAndFlush(
-        boardRepository.findById(id)
+    ) = boardReadWriteRepository.saveAndFlush(
+        boardReadOnlyRepository.findById(id)
             .orElseThrow { throw EntityNotFoundException("board not found") }
             .update(title = title, content = content)
     )
 
     fun deleteBoard(id: Long = 0L) =
-        boardRepository.deleteById(id)
+        boardReadWriteRepository.deleteById(id)
 }

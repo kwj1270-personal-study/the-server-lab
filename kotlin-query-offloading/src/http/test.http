@@ -8,6 +8,17 @@ Content-Type: application/json
   "nickname": "nickname"
 }
 
+
+###
+POST http://localhost:8080/users/with-count
+Content-Type: application/json
+
+{
+  "account": "account124",
+  "password": "password",
+  "nickname": "nickname124"
+}
+
 ###
 POST http://localhost:8080/boards
 Content-Type: application/json
@@ -18,4 +29,3 @@ Content-Type: application/json
   "title": "title",
   "content": "content"
 }
-
