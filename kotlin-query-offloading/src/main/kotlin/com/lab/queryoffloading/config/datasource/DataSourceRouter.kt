@@ -5,7 +5,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import javax.sql.DataSource
 
 class DataSourceRouter(
-    targetDataSources: Map<RoutingDataSourceRole, DataSource>,
+    targetDataSources: Map<String, DataSource>,
     defaultTargetDataSource: DataSource
 ) : AbstractRoutingDataSource() {
     init {
@@ -13,9 +13,8 @@ class DataSourceRouter(
         super.setDefaultTargetDataSource(defaultTargetDataSource)
     }
 
-    override fun determineCurrentLookupKey(): RoutingDataSourceRole {
-        return if (TransactionSynchronizationManager.isCurrentTransactionReadOnly()) {
-            RoutingDataSourceRole.READ_ONLY
-        } else RoutingDataSourceRole.READ_WRITE
+    override fun determineCurrentLookupKey(): Any = when {
+        TransactionSynchronizationManager.isCurrentTransactionReadOnly() -> "slave"
+        else -> "master"
     }
 }
